@@ -1,0 +1,20 @@
+<div class="tracker">
+  <h2>Campus Event Tracker</h2>
+
+  <div class="form-row">
+    <input [(ngModel)]="title" placeholder="Event title" aria-label="Event title" />
+    <input [(ngModel)]="date" type="date" aria-label="Event date" />
+    <button (click)="addEvent()" [disabled]="!title || !date">Add</button>
+  </div>
+
+  <div class="list">
+    <p *ngIf="events.length === 0" class="empty">No events saved.</p>
+
+    <ul *ngIf="events.length > 0">
+      <li *ngFor="let e of events">
+        <span class="title">{{ e.title }}</span>
+        <span class="date">{{ e.date }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
